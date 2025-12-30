@@ -1,0 +1,82 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/shreevaishnavim/Neural-network-and-deep-learning/blob/main/Welcome_To_Colab.ipynb(Huber%20loss)\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def huber_loss(y, y_pred, delta):\n",
+        "    n = len(y)\n",
+        "    total_loss = 0\n",
+        "    for i in range(n):\n",
+        "        error = abs(y[i] - y_pred[i])\n",
+        "        if error <= delta:\n",
+        "            total_loss += 0.5 * error**2\n",
+        "        else:\n",
+        "            total_loss += delta * (error - 0.5 * delta)\n",
+        "    return total_loss / n\n",
+        "# Example with 10 values\n",
+        "y = [5, 8, 3, 6, 9, 4, 7, 2, 10, 1]\n",
+        "y_pred = [5.7, 7.8, 3.4, 5.5, 8.6, 4.2, 6.8, 2.3, 9.5, 1.4]\n",
+        "delta = 0.5\n",
+        "loss = huber_loss(y, y_pred, delta)\n",
+        "print(\"Given Data\")\n",
+        "print(\"Y:\", y)\n",
+        "print(\"Y Predicted:\", y_pred)\n",
+        "print(\"Delta:\", delta)\n",
+        "print(\"Huber Loss:\", loss)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dZF1OMgIxA2q",
+        "outputId": "b3fed80b-ebeb-4a1c-c310-bcf2b0810d60"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Given Data\n",
+            "Y: [5, 8, 3, 6, 9, 4, 7, 2, 10, 1]\n",
+            "Y Predicted: [5.7, 7.8, 3.4, 5.5, 8.6, 4.2, 6.8, 2.3, 9.5, 1.4]\n",
+            "Delta: 0.5\n",
+            "Huber Loss: 0.08200000000000002\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "3lxqPVn3xg4h"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Welcome To Colab",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
